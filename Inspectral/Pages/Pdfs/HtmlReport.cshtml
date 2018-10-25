@@ -1,0 +1,174 @@
+﻿@page
+@model Inspectral.Pages.Pdfs.HtmlReportModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Html.DisplayNameFor(model => model.HtmlInforme.Titulo)</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
+</head>
+<body>
+    <div class="table">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10" style="text-align:center">
+                <h2>
+                    @Html.DisplayFor(model => model.HtmlInforme.Titulo)
+                </h2>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 bg-info">
+            </div>
+            <div class="col-sm-6 bg-info">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <strong> 1.	ANTECEDENTES</strong>
+            </div>
+            <div class="col-lg-12">
+                &nbsp;
+            </div>
+        </div>
+        <table>
+            <tr>
+                <td>
+                    <strong>
+                        @Html.DisplayNameFor(model => model.HtmlInforme.Individualizacion.Tanque)
+                    </strong>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    @Html.DisplayFor(model => model.HtmlInforme.Individualizacion.Tanque)
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <strong>
+                        @Html.DisplayNameFor(model => model.HtmlInforme.Individualizacion.Comprador)
+                    </strong>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    @Html.DisplayFor(model => model.HtmlInforme.Individualizacion.Comprador)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>
+                        @Html.DisplayNameFor(model => model.HtmlInforme.Individualizacion.Fabricante)
+                    </strong>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    @Html.DisplayFor(model => model.HtmlInforme.Individualizacion.Fabricante)
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <strong>
+                        @Html.DisplayNameFor(model => model.HtmlInforme.Individualizacion.FechaFabricación)
+                    </strong>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    @Html.DisplayFor(model => model.HtmlInforme.Individualizacion.FechaFabricación)
+                </td>
+
+            </tr>
+            <tr class="row">
+                <td>
+                    <strong>
+                        @Html.DisplayNameFor(model => model.HtmlInforme.Individualizacion.Capacidad)
+                    </strong>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    @Html.DisplayFor(model => model.HtmlInforme.Individualizacion.Capacidad)
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <strong>
+                        @Html.DisplayNameFor(model => model.HtmlInforme.Individualizacion.Material)
+                    </strong>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    @Html.DisplayFor(model => model.HtmlInforme.Individualizacion.Material)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>
+                        @Html.DisplayNameFor(model => model.HtmlInforme.Individualizacion.TipoTanque)
+                    </strong>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    @Html.DisplayFor(model => model.HtmlInforme.Individualizacion.TipoTanque)
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <strong>
+                        @Html.DisplayNameFor(model => model.HtmlInforme.Individualizacion.NormaReferencia)
+                    </strong>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    @Html.DisplayFor(model => model.HtmlInforme.Individualizacion.NormaReferencia)
+                </td>
+            </tr>
+        </table>
+        <div class="col-lg-12">
+            &nbsp;
+        </div>
+        <!--
+                    Tanque N°	TK-312 (A3) /	Comprador 	Enap
+    Fabricante 	---	/ Fecha de fabricación 	1975
+    Capacidad	5.000 bbl	Material 	Acero al carbono
+    Tipo tanque	Cilíndrico vertical	Norma de referencia 	API 650
+    Fecha inicio inspección	05.08.2016	Fecha termino inspección	05.08.2016
+    Hora inicio	09:00 hrs.	Hora término	11:00 hrs
+
+                -->
+        <!-- So far... -->
+        <div class="row">
+            <div class="col-lg-10" style="align-content:center">
+                @foreach (var item in Model.HtmlInforme.Secciones.OrderBy(se => se.Orden).ToList())
+                {
+                    <div class="table" style="width:90%">
+                        <div class="row">
+                            <div class="col-md-10" colspan="6" style="text-align:left">
+                                <strong> @Html.DisplayFor(modelItem => item.Titulo)</strong>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10" style="text-align:justify">
+                                @Html.Raw(item.Contenido)
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            &nbsp;
+        </div>
+
+        <div class="col-lg-12" style="text-align:left">
+            @DateTime.Now.Date
+        </div>
+    </div>
+
+    @section Scripts
+    {
+        <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    }
+</body>
+</html>

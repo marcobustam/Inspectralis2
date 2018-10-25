@@ -1,0 +1,24 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="table">
+    <div class="row">
+        <div class="col-md-3">
+            <a asp-page="/Informes/Index" class="btn btn-lg"><i class="glyphicon glyphicon-file"></i></a>
+        </div>
+        <div class="col-md-3">
+            <a asp-page="/Pdfs/HtmlReport" asp-route-emid="0" asp-route-inid="2" class="btn btn-lg"><i class="glyphicon glyphicon-file"></i></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <a asp-page="/Informes/ViewPdf" asp-route-emid="0" asp-route-inid="2" class="btn btn-lg"><i class="glyphicon glyphicon-file"></i></a>
+        </div>
+        <div class="col-md-3">
+            
+            <a asp-page="/Secciones/Index" class="btn btn-lg"><i class="glyphicon glyphicon-file"></i></a>
+        </div>
+    </div>
+</div>

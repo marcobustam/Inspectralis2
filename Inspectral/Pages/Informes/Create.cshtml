@@ -1,0 +1,110 @@
+﻿@page
+@model Inspectral.Pages.Informes.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Informe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Nombre" class="control-label"></label>
+                <input asp-for="NuevoInforme.Nombre" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Descripcion" class="control-label"></label>
+                <input asp-for="NuevoInforme.Descripcion" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.CodigoSEC" class="control-label"></label>
+                <input asp-for="NuevoInforme.CodigoSEC" class="form-control" />
+                <span asp-validation-for="NuevoInforme.CodigoSEC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Titulo" class="control-label"></label>
+                <input asp-for="NuevoInforme.Titulo" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Individualizacion.Tanque" class="control-label"></label>
+                <input asp-for="NuevoInforme.Individualizacion.Tanque" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Individualizacion.Tanque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Individualizacion.Comprador" class="control-label"></label>
+                <input asp-for="NuevoInforme.Individualizacion.Comprador" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Individualizacion.Comprador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Individualizacion.Fabricante" class="control-label"></label>
+                <input asp-for="NuevoInforme.Individualizacion.Fabricante" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Individualizacion.Fabricante" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Individualizacion.FechaFabricación" class="control-label"></label>
+                <input asp-for="NuevoInforme.Individualizacion.FechaFabricación" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Individualizacion.FechaFabricación" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Individualizacion.Capacidad" class="control-label"></label>
+                <input asp-for="NuevoInforme.Individualizacion.Capacidad" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Individualizacion.Capacidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Individualizacion.Material" class="control-label"></label>
+                <input asp-for="NuevoInforme.Individualizacion.Material" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Individualizacion.Material" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Individualizacion.TipoTanque" class="control-label"></label>
+                <input asp-for="NuevoInforme.Individualizacion.TipoTanque" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Individualizacion.TipoTanque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Individualizacion.NormaReferencia" class="control-label"></label>
+                <input asp-for="NuevoInforme.Individualizacion.NormaReferencia" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Individualizacion.NormaReferencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Individualizacion.FechaInicioInspeccion" class="control-label"></label>
+                <input asp-for="NuevoInforme.Individualizacion.FechaInicioInspeccion" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Individualizacion.FechaInicioInspeccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Individualizacion.FechaTerminoInspeccion" class="control-label"></label>
+                <input asp-for="NuevoInforme.Individualizacion.FechaTerminoInspeccion" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Individualizacion.FechaTerminoInspeccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Individualizacion.HoraInicio" class="control-label"></label>
+                <input asp-for="NuevoInforme.Individualizacion.HoraInicio" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Individualizacion.HoraInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoInforme.Individualizacion.HoraTermino" class="control-label"></label>
+                <input asp-for="NuevoInforme.Individualizacion.HoraTermino" class="form-control" />
+                <span asp-validation-for="NuevoInforme.Individualizacion.HoraTermino" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

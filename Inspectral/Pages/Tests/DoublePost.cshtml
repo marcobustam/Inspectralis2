@@ -1,0 +1,14 @@
+﻿@page
+@model Inspectral.Pages.Tests.DoublePostModel
+@{
+    ViewData["Title"] = "DoublePost";
+}
+
+<h2>DoublePost - @Model.Message </h2>
+<a asp-page="/Tests/DoublePostqw" class="btn btn-info" role="button"> Home </a>
+<form method="post" asp-page-handler="Post">
+    <button type="submit" id="Post" class="btn btn-info"> Post </button>
+</form>
+<form method="post" asp-page="/Tests/DoublePost" asp-page-handler="Post2">
+    <button type="submit" id="Post2" class="btn btn-info"> Post2 </button>
+</form>

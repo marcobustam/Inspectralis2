@@ -1,0 +1,50 @@
+﻿@page
+@model Inspectral.Pages.Informes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Informe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Informe.InformeID" />
+            <div class="form-group">
+                <label asp-for="Informe.Nombre" class="control-label"></label>
+                <input asp-for="Informe.Nombre" class="form-control" />
+                <span asp-validation-for="Informe.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Informe.Descripcion" class="control-label"></label>
+                <input asp-for="Informe.Descripcion" class="form-control" />
+                <span asp-validation-for="Informe.Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Informe.CodigoSEC" class="control-label"></label>
+                <input asp-for="Informe.CodigoSEC" class="form-control" />
+                <span asp-validation-for="Informe.CodigoSEC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Informe.Titulo" class="control-label"></label>
+                <input asp-for="Informe.Titulo" class="form-control" />
+                <span asp-validation-for="Informe.Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

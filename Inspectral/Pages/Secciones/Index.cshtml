@@ -1,0 +1,41 @@
+﻿@page
+@model Inspectral.Pages.Secciones.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    
+    @foreach (var item in Model.Seccion.OrderBy(se => se.Orden).ToList())
+    {
+        <thead>
+            <tr>
+                <td colspan="1">
+                    @Html.DisplayFor(modelItem => item.Orden)
+                </td>
+                <th colspan="6">
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>
+                </td>
+                <td>
+                    @Html.Raw(item.Contenido)
+                </td>
+                <td>
+                    <a asp-page="/Secciones/Delete" asp-route-id="@item.SeccionID"><i class="glyphicon glyphicon-remove"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    }
+    </table>

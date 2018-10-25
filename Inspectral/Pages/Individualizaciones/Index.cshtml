@@ -1,0 +1,102 @@
+﻿@page
+@model Inspectral.Pages.Individualizaciones.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Individualizacion[0].Tanque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Individualizacion[0].Comprador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Individualizacion[0].Fabricante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Individualizacion[0].FechaFabricación)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Individualizacion[0].Capacidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Individualizacion[0].Material)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Individualizacion[0].TipoTanque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Individualizacion[0].NormaReferencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Individualizacion[0].FechaInicioInspeccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Individualizacion[0].FechaTerminoInspeccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Individualizacion[0].HoraInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Individualizacion[0].HoraTermino)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Individualizacion) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tanque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comprador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fabricante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaFabricación)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoTanque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NormaReferencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicioInspeccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaTerminoInspeccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraTermino)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IndividualizacionID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IndividualizacionID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IndividualizacionID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

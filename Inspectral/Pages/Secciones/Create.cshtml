@@ -1,0 +1,64 @@
+﻿@page
+@model Inspectral.Pages.Secciones.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Seccion</h4>
+<hr />
+<link rel="stylesheet" href="~/lib/bootstrap3-wysiwyg/bootstrap3-wysihtml5.css" />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Seccion.Orden" class="control-label"></label>
+                <input asp-for="Seccion.Orden" class="form-control" />
+                <span asp-validation-for="Seccion.Orden" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seccion.Titulo" class="control-label"></label>
+                <input asp-for="Seccion.Titulo" class="form-control" />
+                <span asp-validation-for="Seccion.Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seccion.Contenido" class="control-label"></label>
+                <textarea asp-for="Seccion.Contenido" id="wysi" class="form-control"></textarea>
+                <span asp-validation-for="Seccion.Contenido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/lib/bootstrap3-wysiwyg/bootstrap3-wysihtml5.all.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("ready!");
+            $('#wysi').wysihtml5({
+                toolbar: {
+                    "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+                    "emphasis": true, //Italics, bold, etc. Default true
+                    "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+                    "html": false, //Button which allows you to edit the generated HTML. Default false
+                    "link": true, //Button to insert a link. Default true
+                    "image": true, //Button to insert an image. Default true,
+                    "color": true, //Button to change color of font
+                    "blockquote": true, //Blockquote
+                    "fa": false
+                }
+            });
+        });
+    </script>
+}

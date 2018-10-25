@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap3-wysiwyg@0.3.3",
+      "destination": "wwwroot/lib/bootstrap3-wysiwyg/"
+    },
+    {
+      "library": "summernote@0.8.10",
+      "destination": "wwwroot/lib/summernote/"
+    }
+  ]
+}

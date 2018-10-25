@@ -1,0 +1,144 @@
+﻿@page
+@model Inspectral.Pages.Informes.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Informe</h4>
+    <hr />
+    <table>
+        <thead>
+            <tr>
+
+
+                <th>
+                    @Html.DisplayNameFor(model => model.EsteInforme.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EsteInforme.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EsteInforme.CodigoSEC)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.EsteInforme.Nombre)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.EsteInforme.Descripcion)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.EsteInforme.CodigoSEC)
+                </td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+                <td>
+                    <a asp-page="/Pdfs/HtmlReport" id="generatePdf" asp-route-emid="0" asp-route-inid="@Model.EsteInforme.InformeID"><i class="glyphicon glyphicon-download"></i> PDF </a>
+                    <a asp-page="/Pdfs/HtmlReport" asp-route-emid="0" asp-route-inid="@Model.EsteInforme.InformeID" class="btn btn-lg"><i class="glyphicon glyphicon-file"></i></a>
+                </td>
+                
+
+            </tr>
+        </thead>
+    </table>
+    <div class="row"><strong> @Html.DisplayFor(model => model.EsteInforme.Titulo); <small>@Html.DisplayFor(model => model.EsteInforme.Descripcion); </small> </strong></div>    
+</div>
+<!-- So far... -->
+<table class="table">
+
+    @foreach (var item in Model.EsteInforme.Secciones.OrderBy(se => se.Orden).ToList())
+    {
+        <thead>
+            <tr>
+                <td colspan="1">    
+                    @Html.DisplayFor(modelItem => item.Orden)
+                </td>
+                <th colspan="6">
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </th>
+                <th>
+                    <a asp-page="/Secciones/Edit" asp-route-emid="0" asp-route-inid="@item.InformeID" asp-route-seid="@item.SeccionID" class="btn btn-info" role="button">Editar<i class="glyphicon glyphicon-edit"></i></a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>
+                    @Html.Raw(item.Contenido)
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    }
+</table>
+<!--    Nueva Sección    -->
+<link rel="stylesheet" href="~/lib/bootstrap3-wysiwyg/bootstrap3-wysihtml5.css" />
+<div class="row">
+    <div class="col-md-9">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NuevaSeccion.InformeID" class="control-label"></label>
+                <input asp-for="NuevaSeccion.InformeID" value="@Model.EsteInforme.InformeID" class="form-control" />
+                <span asp-validation-for="NuevaSeccion.InformeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevaSeccion.Orden" class="control-label"></label>
+                <input asp-for="NuevaSeccion.Orden" class="form-control" />
+                <span asp-validation-for="NuevaSeccion.Orden" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevaSeccion.Titulo" class="control-label"></label>
+                <input asp-for="NuevaSeccion.Titulo" class="form-control" />
+                <span asp-validation-for="NuevaSeccion.Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevaSeccion.Contenido" class="control-label"></label>
+                <textarea asp-for="NuevaSeccion.Contenido" id="wysi" class="form-control"></textarea>
+                <span asp-validation-for="NuevaSeccion.Contenido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <!-- script src="~/lib/bootstrap3-wysiwyg/bootstrap3-wysihtml5.all.min.js"></!--script>
+    <script>
+        $(document).ready(function () {
+            console.log("ready!");
+            $('#wysi').wysihtml5({
+                toolbar: {
+                    "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+                    "emphasis": true, //Italics, bold, etc. Default true
+                    "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+                    "html": true, //Button which allows you to edit the generated HTML. Default false
+                    "link": true, //Button to insert a link. Default true
+                    "image": true, //Button to insert an image. Default true,
+                    "color": true, //Button to change color of font
+                    "blockquote": true, //Blockquote
+                    "fa": false
+                }
+            });
+
+            $('#generatePdf').on("click", function () {
+
+            });
+        });
+    </script-->
+
+}
