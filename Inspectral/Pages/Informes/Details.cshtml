@@ -44,11 +44,9 @@
         <thead>
             <tr>
                 <td>
-                    <a asp-page="/Pdfs/HtmlReport" id="generatePdf" asp-route-emid="0" asp-route-inid="@Model.EsteInforme.InformeID"><i class="glyphicon glyphicon-download"></i> PDF </a>
-                    <a asp-page="/Pdfs/HtmlReport" asp-route-emid="0" asp-route-inid="@Model.EsteInforme.InformeID" class="btn btn-lg"><i class="glyphicon glyphicon-file"></i></a>
+                    <a asp-page="/Informes/ViewPdf" asp-route-emid="0" asp-route-inid="@Model.EsteInforme.InformeID" class="btn btn-lg"><i class="glyphicon glyphicon-file"></i>Generar PDF</a>
+                    <!-- >button class="btn btn-xs btn-info" onclick="openAjaxFile( '@*Model.FilePath' , '@item.FileName' , '@item.FileUid' , '@item.FileUpID' );" id="btnGetFile"><i class="fa fa-file-download"></i></!--button *@ -->
                 </td>
-                
-
             </tr>
         </thead>
     </table>
@@ -117,7 +115,7 @@
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <!-- script src="~/lib/bootstrap3-wysiwyg/bootstrap3-wysihtml5.all.min.js"></!--script>
+    <script src="~/lib/bootstrap3-wysiwyg/bootstrap3-wysihtml5.all.min.js"></script>
     <script>
         $(document).ready(function () {
             console.log("ready!");
@@ -138,7 +136,31 @@
             $('#generatePdf').on("click", function () {
 
             });
+            function openAjaxFile(filePath, fileName, fileAlias, fileId) {
+                alert("openAjaxFile");
+                var uri = "/FileUploaders/Files/Index?handler=PhysicalFileActionResult&filePath=" + filePath + "&fileName=" + fileName + "&fileUid=" + fileAlias;
+                $.ajax({
+                    type: "GET",
+                    url: uri,
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val());
+                    },
+                    contentType: "application/json",
+                    dataType: "html",
+                    complete: function (response) {
+                        // location.href = "/index";
+                    },
+                    success: function (response) {
+                        alert("uri=" + uri);
+                        window.location.href = "/FileUploaders/Files/DownloadFile?id=" + fileId;
+
+                    },
+                    failure: function (response) {
+                        alert(response);
+                    }
+                });
+            }
         });
-    </script-->
+    </script>
 
 }

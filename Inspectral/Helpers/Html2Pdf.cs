@@ -22,15 +22,21 @@ namespace Inspectral.Helpers
 {
     public class Html2Pdf
     {
-        public static void ExportarPDF(string html, string destFile = @"/Data/PdfOutput/pdfFile")
+        public static string ExportarPDF(string html, string destFile = @"/Data/PdfOutput/pdfFile")
         {
             var gu = Guid.NewGuid();
-            var fStream = new FileStream(destFile + gu.ToString() + ".pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            var filename = destFile + gu.ToString() + ".pdf";
+            var fStream = new FileStream(filename, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             PdfWriter writer = new PdfWriter(fStream);
             ConverterProperties converterProperties = new ConverterProperties();
             HtmlConverter.ConvertToPdf(html, fStream, converterProperties);
+            return filename;
         }
+        /*
+        public static File GetPDF(string html, string destFile = @"/Data/PdfOutput/pdfFile")
+        {
 
+        }*/
         /*
          * // pdfHTML specific code
         ConverterProperties converterProperties = new ConverterProperties();

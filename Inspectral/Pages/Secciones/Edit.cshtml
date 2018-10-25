@@ -43,7 +43,7 @@
 </div>
 
 <div>
-    <a asp-page="/Informes/Details?id=1">Volver al Informe</a>
+    <a asp-page="/Informes/Details" asp-route-emid="0" asp-route-inid="@Model.EstaSeccion.InformeID">Volver al Informe</a>
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
